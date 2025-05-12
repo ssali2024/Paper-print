@@ -39,24 +39,24 @@ toggles.forEach((toggle) => {
     }
   });
 });
-
 // Products-page
-const carticon = document.querySelector("#carticon");
+const cartIcon = document.querySelector("#cart-icon");
 const cart = document.querySelector(".cart");
-const cartclose = document.querySelector("#cartclose");
-const cartcontent = document.querySelector(".cartcontent");
+const cartClose = document.querySelector("#cart-close");
 
-carticon.addEventListener("click", () => cart.classList.add("active"));
-cartclose.addEventListener("click", () => cart.classList.remove("active"));
+cartIcon.addEventListener("click", () => cart.classList.add("active"));
+cartClose.addEventListener("click", () => cart.classList.remove("active"));
+
 
 const addcartButtons = document.querySelectorAll(".add-to-cart");
 addcartButtons.forEach((button) => {
-  button.addEventListener("click", (event) => {
+  button.addEventListener("click", event => {
     const productbox = event.target.closest(".product-box");
     addcart(productbox);
   });
 });
 
+const cartContent = document.querySelector(".cart-content");
 const addcart = (productbox) => {
   const productImgSrc = productbox.querySelector("img").src;
   const productTitle = productbox.querySelector(".product-title").textContent;
@@ -69,11 +69,10 @@ const addcart = (productbox) => {
       return;
     }
   }
-
   const cartBox = document.createElement("div");
   cartBox.classList.add("cart-box");
   cartBox.innerHTML = `
-     <img src="${productImgSrc}" alt="">
+     <img src="${productImgSrc}">
      <div class="cart-detail">
        <h2 class="cart-product-title">${productTitle}</h2>
        <span class="cart-price">${productPrice}</span>
@@ -85,7 +84,7 @@ const addcart = (productbox) => {
      </div>
      <i class="bi bi-trash cart-remove"></i>`;
 
-  cartcontent.appendChild(cartBox);
+  cartContent.appendChild(cartBox);
 
   cartBox.querySelector(".cart-remove").addEventListener("click", () => {
     cartBox.remove();
@@ -93,14 +92,16 @@ const addcart = (productbox) => {
     updateTotalPrice();
   });
 
-  cartBox.querySelector(".cart-quantity").addEventListener("click", (event) => {
+  cartBox.querySelector(".cart-quantity").addEventListener("click", event => {
     const numberElement = cartBox.querySelector(".number");
     const decrementButton = cartBox.querySelector("#decrement");
-    let quantity = parseInt(numberElement.textContent);
+    let quantity = numberElement.textContent;
 
     if (event.target.id === "decrement" && quantity > 1) {
       quantity--;
-      decrementButton.style.color = quantity === 1 ? "#999" : "#333";
+      if (quantity === 1) {
+        decrementButton.style.color = "#999";
+      }
     } else if (event.target.id === "increment") {
       quantity++;
       decrementButton.style.color = "#333";
@@ -129,7 +130,7 @@ const updateTotalPrice = () => {
 };
 
 let cartItemCount = 0;
-const updateCartCount = (change) => {
+const updateCartCount = change => {
   const cartItemCountBadge = document.querySelector(".cart-item-count");
   cartItemCount += change;
   if (cartItemCount > 0) {
@@ -149,7 +150,8 @@ buyNowButton.addEventListener("click", () => {
     return;
   }
 
-  cartBoxes.forEach((cartBox) => cartBox.remove());
+  cartBoxes.forEach(cartBox => cartBox.remove());
+
   cartItemCount = 0;
   updateCartCount(0);
   updateTotalPrice();

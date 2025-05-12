@@ -69,12 +69,12 @@ body {
 }
 
 .hero-home-page {
-  background-image: url('https://cdn2.hubspot.net/hubfs/145335/blog-files/b2b-service-pages.jpg');
+  background-image: url('https://t4.ftcdn.net/jpg/12/88/80/01/360_F_1288800140_YXAMx3I08Cs9FVGWm69iuO4ma9xu7hmA.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom center;
   height: 100vh;
-  color: #fff;
+  color: #000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -125,11 +125,11 @@ body {
   padding: 25px 15px;
 }
 .hero-home-page h1 {
-  font-size: 20px;
+  font-size: 30px;
   margin: -20px 0 20px;
 }
 .hero-home-page p {
-  font-size: 15px;
+  font-size: 20px;
   letter-spacing: 0px;
 }
 
@@ -181,6 +181,9 @@ h2 {
     border: 2px solid transparent;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
     transition: 0.2s ease;
+}
+.card-list .card-item .card-link:active {
+  cursor: grabbing;
 }
 .card-list .card-item .card-link:hover {
     border-color: #5372F0;
@@ -428,13 +431,13 @@ font-family: inherit;
   list-style: none;
 }
 /* Products-Page */
-#carticon {
+#cart-icon {
    display: flex;
    position: relative;
    font-size: 30px;
    cursor: pointer;
 }
-#carticon.cart-item-count {
+#cart-icon.cart-item-count {
   position: absolute;
   top: 0;
   right: -6px;
@@ -464,8 +467,9 @@ font-family: inherit;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  border-radius: 50px;
+  border: 0.5px solid #D3D3D3;
 }
-
 .product-box .img-box {
   display: flex;
   justify-content: center;
@@ -516,12 +520,15 @@ font-family: inherit;
   right: -100%;
   width: 360px;
   height: 100%;
-  background-color: #E4E4E4;
+  background-color: #fff;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
   padding: 65px 20px 40px;
   z-index: 100;
   overflow: auto;
   transition: 0.5s;
+}
+.cart.active {
+  right: 0;
 }
 .cart-title {
   text-align: center;
@@ -571,7 +578,7 @@ font-family: inherit;
   border-right: 1px solid #999;
   cursor: default;
 }
-.bi-trash {
+.cart-remove {
   font-size: 25px;
   cursor: pointer;
 }
@@ -598,7 +605,7 @@ font-family: inherit;
   margin: 20px auto 0;
   cursor: pointer;
 }
-#cartclose {
+#cart-close {
   position: absolute;
   top: 20px;
   right: 15px;
