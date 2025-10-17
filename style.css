@@ -742,13 +742,9 @@ footer {
 .copyright-wrapper p a:hover {
   color: #037ef3;
 } 
-/* 1. LATEST NEWS & GLOBAL SCALING (Universal) */
-/* Ensures these elements are centered and scale fluidly. */
-
 .leatest {
     text-align: center;
 }
-/* Using a combined selector for centering the news content */
 .leatest news {
     width: 95%;
     max-width: 1200px; 
@@ -756,20 +752,13 @@ footer {
     padding: 20px 10px;
 }
 .leatest news h3 {
-    /* Fluid font size: Minimum 1.5em, ideal 4vw, maximum 2.5em */
     font-size: clamp(1.5em, 4vw, 2.5em);
 }
-
-/* Fluid scaling for main page titles */
 .hero-home-page h1,
 .hero-service-page h2 {
-    /* Fluid font size: Minimum 1.8em, ideal 5vw, maximum 3.5em */
     font-size: clamp(1.8em, 5vw, 3.5em); 
 }
-/* 2. TABLET / SMALL LAPTOPS (MAX 1200px) */
-
 @media screen and (max-width: 1200px) {
-    /* Navigation: Reduce the wide fixed margins */
     .nav {
         margin: 0 20px; 
     }
@@ -779,8 +768,6 @@ footer {
     .nav ul li a {
         font-size: 0.9em; 
     }
-
-    /* Preserve 3-column layout by shrinking widths */
     .products-content, 
     .services {
         justify-content: space-evenly;
@@ -793,11 +780,7 @@ footer {
         min-width: 220px; 
     }
 }
-
-/* 3. MOBILE LANDSCAPE / SMALL TABLETS (MAX 800px) */
 @media screen and (max-width: 800px) {
-    
-    /* NAVIGATION: MAXIMUM COMPRESSION TO KEEP HORIZONTAL LAYOUT */
     .nav {
         margin: 0 5px; 
         padding: 8px 5px;
@@ -821,8 +804,6 @@ footer {
     .nav .icons {
         margin-left: 5px;
     }
-    
-    /* ICON REDUCTION */
     .nav .icons #icon-headsets {
         width: 20px; 
         height: 20px;
@@ -831,16 +812,12 @@ footer {
         font-size: 20px; 
         margin-left: 5px;
     }
-
-    /* Maintain 3-column layout, allowing items to be very narrow */
     .product-box, 
     .card {
         width: 30%; 
-        min-width: 150px; /* Allows for tight three-column display */
+        min-width: 150px; 
         padding: 15px 5px;
     }
-
-    /* FOOTER: Switch to a single column stack for small tablet landscape/vertical */
     .footer-wrapper {
         flex-direction: column;
         padding: 20px;
@@ -851,11 +828,7 @@ footer {
         margin-bottom: 20px;
     }
 }
-/* 4. MOBILE PORTRAIT (MAX 480px) */
-/* The final unavoidable break where the navigation stacks, and main content switches to 2 columns for readability. */
 @media screen and (max-width: 480px) {
-    
-    /* --- NAVIGATION BAR: VERTICAL STACK (Final Break) --- */
     .nav {
         flex-direction: column;
         align-items: center; 
@@ -865,13 +838,12 @@ footer {
     .nav .container {
         flex-direction: column;
         align-items: center;
-        width: 100%;
+        width: 50;
     }
     .nav .icons {
         margin: 10px 0 0 0;
+        font-size: 15px;
     }
-    
-    /* Products/Packages: Switch to a 2-column layout */
     .products-content, 
     .services {
         flex-direction: row; 
@@ -879,14 +851,11 @@ footer {
         justify-content: space-around;
         gap: 10px;
     }
-
     .product-box, 
     .card {
         width: 47%;
         min-width: 140px;
     }
-    
-    /* Ensure no horizontal scroll on the smallest screens */
     body {
         overflow-x: hidden;
     }
